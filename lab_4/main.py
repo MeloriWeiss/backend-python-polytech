@@ -51,7 +51,7 @@ def call_all_functions():
 
         print("4")
         # закомментирована, чтобы не создала файла при случайном вызове
-        # read_file('C:/Users/1645284/OneDrive/lab-4.txt', married_users)
+        # read_file('C:/Users/1645284/OneDrive/lab_4.txt', married_users)
         set_married_term(married_users, '0fff')
         print('married users with term', married_users)
         print('married users term', get_married_term(married_users))
