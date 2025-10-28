@@ -14,4 +14,10 @@ save_migrations:
 migrate:
 	alembic upgrade head
 
+
+#lab 10
+django:
+	python manage.py runserver
+
+#example for run command
 #make run
