@@ -1,5 +1,7 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+from django.views.generic import TemplateView
+
 
 # первоначальное представление hello_world
 # def hello_world(request):
@@ -10,14 +12,16 @@ from django.shortcuts import redirect
 
 # hello_world с куками
 def hello_world(request):
-    name = request.GET.get('name', 'User')
-    age = request.GET.get('age', '0')
-    # создаём ответ
-    response = HttpResponse(f'<h1>Hello, {name}! You are {age} years old.</h1>')
-    # устанавливаем куку с именем пользователя
-    response.set_cookie('username', name)
-    # возвращаем ответ
-    return response
+    names = ['Mark', 'Isabella']
+    return render(request, 'base.html', {'names': names})
+
+# hello_world с куками
+def extended(request):
+    names = ['Mark', 'Isabella']
+    return render(request, 'extended.html', {'names': names})
+
+class HomeView(TemplateView):
+    template_name = 'base.html'
 
 def show_cookies(request):
     # получаем словарь всех куки
